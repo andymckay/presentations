@@ -27,10 +27,8 @@ class Test(unittest.TestCase):
                           sorted_ci, [4, 5])
 
     def test_unicode(self):
-        utf8_str = u'বাংলা'.encode('utf-8')
-        assert (sorted_ci([utf8_str, 'Orange'])
-                == ['Orange', utf8_str])
-
+        assert (sorted_ci([u'বাংলা', 'Orange'])
+                == ['Orange', u'বাংলা'])
 
 if __name__ == '__main__':
     unittest.main()
