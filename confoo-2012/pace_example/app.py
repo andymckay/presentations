@@ -29,11 +29,11 @@ def api():
     websocket = request.environ.get('wsgi.websocket', None)
     if websocket:
         greenlet = gevent.spawn(listener, websocket)
-    while True:
-        message = websocket.receive()
-        if message is None:
-            greenlet.throw(gevent.Greenlet.GreenletExit)
-            break
+        while True:
+            message = websocket.receive()
+            if message is None:
+                greenlet.throw(gevent.Greenlet.GreenletExit)
+                break
 
     return ''
 
