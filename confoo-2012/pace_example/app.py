@@ -21,21 +21,21 @@ def index():
 def listener(websocket):
     sub = red().pubsub()
     sub.subscribe('ecg')
- 
-    for message in sub.listen():
-	websocket.send(message['data'])
 
-	
+    for message in sub.listen():
+        websocket.send(message['data'])
+
+
 @app.route('/api/')
 def api():
     websocket = request.environ.get('wsgi.websocket', None)
     if websocket:
         greenlet = gevent.spawn(listener, websocket)
-	while True:
-    	    message = websocket.receive()
-            if message is None:
-                greenlet.throw(gevent.Greenlet.GreenletExit)
-                break    
+    while True:
+        message = websocket.receive()
+        if message is None:
+            greenlet.throw(gevent.Greenlet.GreenletExit)
+            break
 
     return ''
 
