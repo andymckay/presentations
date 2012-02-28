@@ -1,0 +1,5 @@
+Flask
+gevent
+gevent-websocket
+gunicorn
+redis

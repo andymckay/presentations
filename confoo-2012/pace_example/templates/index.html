@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Pace, Sample ECG Data</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.4.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='smoothie.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='pace.js') }}"></script>
+  </head>
+  <body data-web-socket="ws://{{ request.host }}{{ url_for('.api') }}">
+    <h2>Sample ECG Data Test</h2>
+    <div><canvas id="ecg1" width="800" height="100"></canvas></div>
+    <div><canvas id="ecg2" width="800" height="100"></canvas></div>
+  </body>
+</html> 
