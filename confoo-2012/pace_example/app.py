@@ -8,9 +8,7 @@ import redis
 
 
 app = Flask(__name__)
-app.debug = True
 monkey.patch_all()
-red = lambda: redis.Redis()
 
 
 @app.route('/')
@@ -19,7 +17,7 @@ def index():
 
 
 def listener(websocket):
-    sub = red().pubsub()
+    sub = redis.Redis().pubsub()
     sub.subscribe('ecg')
 
     for message in sub.listen():
@@ -41,5 +39,6 @@ def api():
 
 
 if __name__ == '__main__':
+    app.debug = True
     http_server = WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
     http_server.serve_forever()
