@@ -1,19 +1,14 @@
+from flask import Flask, request, render_template
+
 import gevent
-from gevent import monkey
 from geventwebsocket.handler import WebSocketHandler
 from gevent.pywsgi import WSGIServer
-from flask import Flask, request, render_template
+from gevent import monkey
 
 import redis
 
-
 app = Flask(__name__)
 monkey.patch_all()
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 
 def listener(websocket):
@@ -22,6 +17,11 @@ def listener(websocket):
 
     for message in sub.listen():
         websocket.send(message['data'])
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/api/')
@@ -37,8 +37,7 @@ def api():
 
     return ''
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.debug = True
     http_server = WSGIServer(('', 5000), app, handler_class=WebSocketHandler)
     http_server.serve_forever()
