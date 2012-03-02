@@ -22,7 +22,7 @@ Step 1: Stand up Flask
 -----------------------------
 Run::
 
-        git checkout 114b34
+        git checkout 2281c8157112b79be7aa499c51d30e0db3adc006
 
 Setup a virtualenv [1]_ [2]_::
 
@@ -62,7 +62,7 @@ Step 2: Hooking up redis to python
 
 Run::
 
-        git checkout b1fcfd
+        git checkout c1a02dff4755bb60e2a3cb0078fc4afea7e4f089
 
 Hooking up to Redis [5]_. Install redis (OS X specific) using homebrew [6]_::
 
@@ -96,7 +96,7 @@ Step 3: Hook up redis pub/sub
 
 Run::
 
-        git checkout 5b7b66a
+        git checkout 2ceb7b71a512fd9581508d16629ccbba35797657
 
 Subscribe to a redis channel [8]_::
 
@@ -118,7 +118,7 @@ Step 4: Hook up websockets to Python
 
 Run::
 
-        git checkout f113230
+        git checkout 0041ba9135867d11f571b1524fe8ac29a24905d3
 
 Communicate between Firefox (or Chrome) and python. Let's use Websockets [9]_.
 
@@ -146,7 +146,7 @@ Step 5: Send in heart data
 
 Run::
 
-        git checkout 7a43d3c
+        git checkout 660df1be9c790a92b2fd55bc059a62955cbe3121
 
 Send heart data. See ecg.py and ecg-data.csv.
 
@@ -166,7 +166,7 @@ Step 6: Add in a graph!
 
 Run::
 
-        git checkout 8e726fc
+        git checkout f0e2fe01ba5592489bfaf521ee90355afb29bb49
 
 Add in a graph, let's use smoothie [10]_.
 
@@ -183,7 +183,7 @@ Step 7: Flipping between subscriptions
 
 Run::
 
-        git checkout 4f8b749
+        git checkout ec87b2d8e63a675b62b52740a6f2df728fac2eb2
 
 Advanced-foo!
 
