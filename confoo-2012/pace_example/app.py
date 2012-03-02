@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 def listener(websocket):
     sub = redis.Redis().pubsub()
-    sub.subscribe('testing')
+    sub.subscribe('ecg')
 
     for message in sub.listen():
         websocket.send(message['data'])

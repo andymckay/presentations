@@ -1,11 +1,14 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Hello</title>
+    <title>Pace</title>
     <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.4.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='smoothie.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='pace.js') }}"></script>
   </head>
   <body data-web-socket="ws://{{ request.host }}{{ url_for('.api') }}">
-    <p>Hello World!</p>
+    <h2>Sample Data</h2>
+    <div><canvas id="ecg1" width="400" height="100"></canvas></div>
+    <div><canvas id="ecg2" width="400" height="100"></canvas></div>
   </body>
 </html>
