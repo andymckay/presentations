@@ -2,8 +2,10 @@
 <html>
   <head>
     <title>Hello</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.4.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='pace.js') }}"></script>
   </head>
-  <body>
+  <body data-web-socket="ws://{{ request.host }}{{ url_for('.api') }}">
     <p>Hello World!</p>
   </body>
 </html>
