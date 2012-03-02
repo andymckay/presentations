@@ -1,0 +1,3 @@
+*.py[co]
+*.tiff
+.DS_Store

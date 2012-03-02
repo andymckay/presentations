@@ -19,11 +19,24 @@ $(document).ready(function(){
     smoothie_ecg2.streamTo(document.getElementById("ecg2"));
 
     ws.onmessage = function (msg) {
-        var out = msg.data.split('|');
-        ecg1.append(parseFloat(out[0]), parseFloat(out[1]));
-        ecg2.append(parseFloat(out[0]), parseFloat(out[2]));
+        if (msg.data.indexOf('ecg-data-') === 0) {
+            var out = msg.data.substr(9).split('|');
+            ecg1.append(parseFloat(out[0]), parseFloat(out[1]));
+            ecg2.append(parseFloat(out[0]), parseFloat(out[2]));
+        } else if (msg.data.indexOf('ecgs-keys-') === 0) {
+            $.each(msg.data.substr(10).split('|'), function() {
+                $('#ecgs-keys').append($('<a>', {text: this.substr(0), href: '#'}));
+            });
+        }
     };
     ws.onopen = function() {
         ws.send('connected');
     };
+
+    $('#ecgs-keys a').live('click', function() {
+        ecg1.data = [];
+        ecg2.data = [];
+        ws.send(this.text);
+        return false;
+    });
 });
