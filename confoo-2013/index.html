@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Fifty awesome things in the Python standard library</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/one-mozilla.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+    <link rel="stylesheet" href="lib/css/override.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+        <section>
+        <h3>Fifty <b>awesome things</b> in the <br/>
+            Python standard library</b></h3>
+          <p>
+            <small>
+              <a href="http://www.agmweb.ca/blog/andy">Andy McKay</a><br>
+              <a href="http://twitter.com/andymckay">@andymckay</a><br>
+              <a href="https://github.com/andymckay/presentations">github.com/andymckay/presentations</a>
+            </small>
+          </p>
+        </section>
+
+        <section>
+          <h3>Why?</h3>
+          <p>Some languages don't even have a standard library.</p>
+          <p>It's got some great stuff.</p>
+          <p>It's got some <b>not so</b> great stuff.</p>
+        </section>
+
+				<section>
+          <h3>Rules</h3>
+          <p>Must in 2.x or 3.x standard library.</p>
+          <p>Python version will be noted.</p>
+          <p>Multiple things from one module can be counted.</p>
+          <p>Must be awesome.</p>
+        </section>
+
+        <section>
+          <h3>argparse</h3>
+          <pre><code class="python">>>> import argparse
+>>> parser = argparse.ArgumentParser()
+...[snip]
+>>> parser.parse_args(['--sum', '7', '-1', '42'])
+Namespace(accumulate=<built-in function sum>, integers=[7, -1, 42])</code></pre>
+          <div class="version">2.6</div>
+        </section>
+
+        <section>
+          <h3>codecs</h3>
+          <pre><code class="python">>>> import codecs
+>>> codecs.open('example.txt', 'r',
+...             'utf-8', 'strict').read()
+u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
+        </section>
+
+        <section>
+          <h3>contextlib.contextmanager</h3>
+          <pre><code class="python">>>> from contextlib import contextmanager
+>>> @contextmanager
+... def tag(name):
+...     print "&lt%s&gt" % name,
+...     yield
+...     print "&lt/%s&gt" % name
+...
+>>> with tag('h1'): print 'hello',
+...
+&lth1&gt hello &lt/h1&gt</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
+          <h3>collections.defaultdict</h3>
+          <pre><code class="python">>>> from collections import defaultdict
+>>> beer = defaultdict(lambda: defaultdict(dict))
+>>> beer['guinness']['colour'] = 'black'
+>>> beer['guinness']['colour']
+'black'</code></pre>
+          <div class="version">2.5</div>
+       </section>
+
+        <section>
+          <h3>collections.OrderedDict</h3>
+          <pre><code class="python">>>> from collections import OrderedDict
+>>> o = OrderedDict()
+>>> o['x'] = 'X'
+>>> o['y'] = 'Y'
+>>> o.keys()
+['x', 'y']</code></pre>
+          <div class="version">2.7</div>
+        </section>
+
+        <section>
+          <h3>collections.namedtuple</h3>
+          <pre><code class="python">>>> from collections import namedtuple
+>>> Point = namedtuple('Point', ['x', 'y'])
+>>> p = Point(3, 4)
+>>> p.x
+3</code></pre>
+          <div class="version">2.6</div>
+        </section>
+
+        <section>
+          <h3>ctypes</h3>
+          <pre><code class="python">>>> from ctypes import *
+>>> print windll.kernel32
+&lt;WinDLL 'kernel32', handle ... at ...&gt;</code></pre>
+          <div class="version">2.5</div>
+          <div class="note">complicated.</div>
+        </section>
+
+        <section>
+          <h3>decimal.Decimal</h3>
+          <pre><code class="python">>>> from decimal import Decimal
+>>> Decimal('3.14214').quantize(Decimal('.01'))
+Decimal('3.14')</code></pre>
+          <div class="version">2.6</div>
+        </section>
+
+        <section>
+          <h3>functools.partial</h3>
+          <pre><code class="python">>>> import functools, os
+>>> join = functools.partial(
+...   os.path.join, '/some/root')
+>>> join('bar')
+'/some/root/bar'</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
+          <h3>functools.total_ordering</h3>
+          <pre><code class="python">>>> from functools import total_ordering
+>>> @total_ordering
+... class Person:
+...     def __init__(self, age):
+...         self.age = age
+...     def __lt__(self, other):
+...         return self.age < other.age
+...
+>>> print Person(45) >= Person(5)
+True</code></pre>
+          <div class="version">2.7</div>
+        </section>
+
+        <section>
+        <h3>functools.wraps</h3>
+        <pre><code class="python">>>> from functools import wraps
+>>> def my_decorator(f):
+...     @wraps(f)
+...     def wrapper(*args, **kwds):
+...         return f(*args, **kwds)
+...     return wrapper</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
+        <h3>glob.glob</h3>
+        <pre><code class="python">>>> from glob import glob
+>>> glob('apps/*/*.py')
+['apps/abuse/__init__.py',
+ 'apps/access/__init__.py', ...]</code></pre>
+        </section>
+
+        <section>
+          <h3>importlib.import_module</h3>
+          <pre><code class="python">>>> from importlib import import_module
+>>> import_module('urllib')
+&lt;module 'urllib' from ...&gt;</code></pre>
+          <div class="version">2.7<?div>
+        </section>
+
+        <section>
+          <h3>inspect.getmoduleinfo</h3>
+          <pre><code class="python">>>> import inspect
+>>> inspect.getmoduleinfo('../settings_local.pyc')
+ModuleInfo(name='settings_local', suffix='.pyc',
+           mode='rb', module_type=2)</code></pre>
+          <div class="version">2.1<?div>
+       </section>
+
+       <section>
+          <h3>inspect.getsource</h3>
+          <pre><code class="python">>>> import inspect, urllib
+>>> inspect.getsource(urllib.urlopen)
+'def urlopen(url, data=None, proxies=None):\n...'</code></pre>
+          <div class="version">2.1<?div>
+        </section>
+
+        <section>
+          <h3>inspect.stack</h3>
+          <pre><code class="python">>>> import inspect
+>>> inspect.stack()
+[(&lt;frame object at 0x7fdd21cbf490&gt;, '&lt;stdin&gt;', 1,
+ '&lt;module&gt;', None, None)]</code></pre>
+        </section>
+
+       <section>
+          <h3>itertools.groupby</h3>
+          <pre><code class="python">>>> from itertools import groupby
+>>> x = [1,1,3,3,3,3,3,4,5,6]
+>>> for x, g in groupby(x):
+...     print x; print [y for y in g]
+...
+1
+[1, 1]
+3
+[3, 3, 3, 3, 3]</code></pre>
+          <div class="Falseversion">2.4</div>
+        </section>
+
+       <section>
+          <h3>itertools.chain</h3>
+          <pre><code class="python">>>> from itertools import chain
+>>> for x in chain('a', 'bc'):
+...     print x
+...
+a
+b
+c</code></pre>
+          <div class="version">2.4</div>
+        </section>
+
+       <section>
+          <h3>itertools.imap</h3>
+          <pre><code class="python">>>> from itertools import imap
+>>> for x in itertools.imap(str.upper, ['a','b']):
+...     print x
+...
+A
+B</code></pre>
+          <div class="version">2.4</div>
+        </section>
+
+        <section>
+          <h3>json</h3>
+<pre><code class="python">$ echo '{"foo": "lorem", "bar": "ipsum"}'\
+  | python -m json.tool
+{
+    "bar": "ipsum",
+    "foo": "lorem"
+}</code></pre>
+          <div class="version">2.6</div>
+        </section>
+
+
+        <section>
+          <h3>pdb</h3>
+<pre><code class="python">$ python -m pdb foo.py
+> foo.py(1)<module>()
+-> import smtplib
+(Pdb)
+</code></pre>
+        </section>
+
+        <section>
+          <h3>pdb.set_trace</h3>
+          <pre><code class="python">>>> import pdb; pdb.set_trace()
+--Return--
+> <stdin>(1)<module>()->None
+(Pdb)</code></pre>
+        </section>
+
+        <section>
+          <h3>pdb.pm</h3>
+<pre><code class="python">>>> import pdb
+>>> import mymodule
+>>> mymodule.test()
+Traceback (most recent call last):
+  File "./mymodule.py", line 3, in test2
+    print spam
+NameError: spam
+>>> pdb.pm()
+> ./mymodule.py(3)test2()
+-> print spam
+(Pdb)
+</code></pre>
+        </section>
+
+        <section>
+          <h3>profile</h3>
+          <pre><code class="python smaller">$ python -m profile foo.py -s ncalls
+5961 function calls (5896 primitive calls) in 0.076...
+
+Ordered by: standard name
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    13    0.000    0.000    0.000    0.000 :0(__contains__)
+     2    0.000    0.000    0.000    0.000 :0(_getframe)
+    11    0.000    0.000    0.000    0.000 :0(add)
+    13    0.000    0.000    0.001    0.000 :0(all)
+   327    0.001    0.000    0.001    0.000 :0(append)</code></pre>
+        </section>
+
+        <section>
+        <h3>sets (and set)</h3>
+          <pre><code class="python">>>> set([1,2,3]).intersection(set([3,4,5]))
+set([3])</code></pre>
+          <div class="version">2.3 &raquo; 2.6 (now a built-in)</div>
+          <div class="note">honourable mention</div>
+        </section>
+
+        <section>
+          <h3>SimpleHTTPServer</h3>
+<pre><code class="python">$ python -m SimpleHTTPServer
+Serving HTTP on 0.0.0.0 port 8000 ...</code></pre>
+        </section>
+
+        <section>
+          <h3>smtpd</h3>
+<pre><code class="python">$ python -m smtpd -n -c DebuggingServer localhost:2000
+---------- MESSAGE FOLLOWS ----------
+From: bob@site.com
+To: jane@site.com
+X-Peer: 127.0.0.1
+
+ConFoo
+------------ END MESSAGE ------------</code></pre>
+        </section>
+
+        <section>
+        <h3>tempfile.NamedTemporaryFile</h3>
+        <pre><code class="python">>>> import os
+>>> from tempfile import NamedTemporaryFile
+>>> tmp = NamedTemporaryFile()
+>>> tmp.name
+'/var/folders/g_/d41tpd...'
+>>> os.path.exists(tmp.name)
+True
+>>> tmp.close()
+>>> os.path.exists(tmp.name)
+False</code></pre>
+        <div class="version">2.3</div>
+        </section>
+
+        <section>
+          <h3>timeit.timeit</h3>
+<pre><code class="python">>>> import timeit
+>>> timeit.timeit(
+...     '",".join(str(n) for n in range(100))',
+...     number=10000)
+0.41231489181518555</code></pre>
+        <div class="version">2.3</div>
+        </section>
+
+        <section>
+          <h3>trace</h3>
+<pre><code class="python">$ python -m trace --trace foo.py
+ --- modulename: threading, funcname: settrace
+threading.py(90):     _trace_hook = func
+ --- modulename: foo, funcname: <module>
+foo.py(1): import smtplib
+ --- modulename: smtplib, funcname: <module>
+smtplib.py(33): '''
+smtplib.py(44): import socket
+ --- modulename: socket, funcname: <module>
+socket.py(44): """
+socket.py(46): import _socket</pre></code>
+        </section>
+
+        <section>
+          <h3>unicodedata.lookup</h3>
+<pre><code class="python">$ python -c "import unicodedata;\
+  print unicodedata.lookup('SNOWMAN')"
+☃</code></pre>
+        </section>
+
+        <section>
+        <h3>unittest.mock Mock</h3>
+<pre><code class="python">>>> from unittest.mock import Mock
+>>> thing = Mock()
+>>> thing.method()
+&lt;Mock name='mock.method()' id='4467254992'&gt;
+>>> thing.method.return_value = 3
+>>> thing.method()
+3</code></pre>
+          <div class="version">3.3</div>
+        </section>
+
+        <section>
+        <h3>unittest.mock patch</h3>
+          <pre><code class="python">@patch('requests.post')
+def test_auth_fails(self, post):
+    post.side_effect = AuthError
+    with self.assertRaises(AuthError):
+         self.paypal.call('get-pay-key', {})</code></pre>
+          <div class="version">3.3</div>
+        </section>
+
+        <section>
+          <h3>urllib.parse.urlparse</h3>
+<pre><code class="python">>>> from urllib.parse import urlparse, urlunparse
+>>> urlparse('http://mozilla.org')
+ParseResult(scheme='http', netloc='mozilla.org',
+            path='', params='', query='',
+            fragment='')
+>>> urlunparse(urlparse('http://mozilla.org'))
+'http://mozilla.org'</code></pre>
+          <div class="note">called urlparse in Python 2.</div>
+        </section>
+
+        <section>
+          <h3>venv.create</h3>
+          <pre><code class="python">>>> import venv
+>>> venv.create('/tmp/venv')</code></pre>
+          <div class="version">3.3</div>
+          <div class="note">virtualenv is awesome</div>
+        </section>
+
+        <section>
+          <h3>Easter eggs</h3>
+        </section>
+
+        <section>
+          <h3>this</h3>
+<pre><code class="python">>>> import this
+The Zen of Python, by Tim Peters
+
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+... [snip]</code></pre>
+        </section>
+
+        <section>
+          <h3>__future__.braces</h3>
+<pre><code class="python">>>> from __future__ import braces
+  File "<stdin>", line 1
+SyntaxError: not a chance</code></pre>
+        </section>
+
+        <section>
+          <h3>antigravity</h3>
+<pre><code class="python">>>> import antigravity</code></pre>
+        <div class="version">3</div>
+        </section>
+
+        <section>
+          <img src="http://imgs.xkcd.com/comics/python.png" />
+        </section>
+
+				<section>
+					<h1>Fin.</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
