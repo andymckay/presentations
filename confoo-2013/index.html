@@ -34,8 +34,8 @@
 			<div class="slides">
 
         <section>
-        <h3>Fifty <b>awesome things</b> in the <br/>
-            Python standard library</b></h3>
+        <h2>Fifty <b>awesome things</b><br/>
+            in the standard library</b></h2>
           <p>
             <small>
               <a href="http://www.agmweb.ca/blog/andy">Andy McKay</a><br>
@@ -52,16 +52,16 @@
           <p>It's got some <b>not so</b> great stuff.</p>
         </section>
 
-				<section>
+        <section>
           <h3>Rules</h3>
           <p>Must in 2.x or 3.x standard library.</p>
-          <p>Python version will be noted.</p>
-          <p>Multiple things from one module can be counted.</p>
-          <p>Must be awesome.</p>
+          <p>Python version added will be noted if recent.</p>
+          <p>Fun or just jolly useful counts.</p>
         </section>
 
         <section>
           <h3>argparse</h3>
+          <div class="count">1</div>
           <pre><code class="python">>>> import argparse
 >>> parser = argparse.ArgumentParser()
 ...[snip]
@@ -71,7 +71,23 @@ Namespace(accumulate=<built-in function sum>, integers=[7, -1, 42])</code></pre>
         </section>
 
         <section>
+          <h3>atexit</h3>
+          <div class="count">2</div>
+          <pre><code class="python">>>> import atexit, os
+>>> os.path.exists('confoo.txt')
+True
+>>> def cleanup(): os.system('rm confoo.txt')
+...
+>>> atexit.register(cleanup)
+<function cleanup at 0x105066398>
+>>> ^D
+$ ls confoo.txt
+ls: confoo.txt: No such file or directory</code></pre>
+        </section>
+
+        <section>
           <h3>codecs</h3>
+          <div class="count">3</div>
           <pre><code class="python">>>> import codecs
 >>> codecs.open('example.txt', 'r',
 ...             'utf-8', 'strict').read()
@@ -80,6 +96,7 @@ u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
 
         <section>
           <h3>contextlib.contextmanager</h3>
+          <div class="count">4</div>
           <pre><code class="python">>>> from contextlib import contextmanager
 >>> @contextmanager
 ... def tag(name):
@@ -89,12 +106,13 @@ u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
 ...
 >>> with tag('h1'): print 'hello',
 ...
-&lth1&gt hello &lt/h1&gt</code></pre>
+'&lth1&gt hello &lt/h1&gt'</code></pre>
           <div class="version">2.5</div>
         </section>
 
         <section>
           <h3>collections.defaultdict</h3>
+          <div class="count">5</div>
           <pre><code class="python">>>> from collections import defaultdict
 >>> beer = defaultdict(lambda: defaultdict(dict))
 >>> beer['guinness']['colour'] = 'black'
@@ -104,7 +122,25 @@ u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
        </section>
 
         <section>
+          <h3>collections.Counter</h3>
+          <div class="count">6</div>
+          <pre><code class="python">>>> from collections import Counter
+>>> food = Counter(['eggs', 'bacon'])
+>>> food['eggs']
+1
+>>> food['ham']
+0
+>>> food += Counter(['eggs', 'ham'])
+>>> food['eggs']
+2
+>>> food['ham']
+1</code></pre>
+          <div class="version">2.4</div>
+       </section>
+
+        <section>
           <h3>collections.OrderedDict</h3>
+          <div class="count">7</div>
           <pre><code class="python">>>> from collections import OrderedDict
 >>> o = OrderedDict()
 >>> o['x'] = 'X'
@@ -116,6 +152,7 @@ u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
 
         <section>
           <h3>collections.namedtuple</h3>
+          <div class="count">8</div>
           <pre><code class="python">>>> from collections import namedtuple
 >>> Point = namedtuple('Point', ['x', 'y'])
 >>> p = Point(3, 4)
@@ -126,6 +163,7 @@ u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
 
         <section>
           <h3>ctypes</h3>
+          <div class="count">9</div>
           <pre><code class="python">>>> from ctypes import *
 >>> print windll.kernel32
 &lt;WinDLL 'kernel32', handle ... at ...&gt;</code></pre>
@@ -135,6 +173,7 @@ u'\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576\n'</code></pre>
 
         <section>
           <h3>decimal.Decimal</h3>
+          <div class="count">10</div>
           <pre><code class="python">>>> from decimal import Decimal
 >>> Decimal('3.14214').quantize(Decimal('.01'))
 Decimal('3.14')</code></pre>
@@ -142,7 +181,19 @@ Decimal('3.14')</code></pre>
         </section>
 
         <section>
+          <h3>dis</h3>
+          <div class="count">11</div>
+          <pre><code class="python smaller">>>> from urllib import urlopen
+>>> import dis
+>>> dis.dis(urlopen)
+ 73           0 LOAD_CONST               1 (-1)
+              3 LOAD_CONST               2 (('warnpy3k',))
+              6 IMPORT_NAME              0 (warnings)</code></pre>
+        </section>
+
+        <section>
           <h3>functools.partial</h3>
+          <div class="count">12</div>
           <pre><code class="python">>>> import functools, os
 >>> join = functools.partial(
 ...   os.path.join, '/some/root')
@@ -153,6 +204,7 @@ Decimal('3.14')</code></pre>
 
         <section>
           <h3>functools.total_ordering</h3>
+          <div class="count">13</div>
           <pre><code class="python">>>> from functools import total_ordering
 >>> @total_ordering
 ... class Person:
@@ -168,6 +220,7 @@ True</code></pre>
 
         <section>
         <h3>functools.wraps</h3>
+          <div class="count">14</div>
         <pre><code class="python">>>> from functools import wraps
 >>> def my_decorator(f):
 ...     @wraps(f)
@@ -178,7 +231,8 @@ True</code></pre>
         </section>
 
         <section>
-        <h3>glob.glob</h3>
+        <h3>glob.iglob</h3>
+          <div class="count">15</div>
         <pre><code class="python">>>> from glob import glob
 >>> glob('apps/*/*.py')
 ['apps/abuse/__init__.py',
@@ -186,7 +240,23 @@ True</code></pre>
         </section>
 
         <section>
+        <h3>imap</h3>
+          <div class="count">16</div>
+        <pre><code class="python">>>> import imaplib
+>>> imap = imaplib.IMAP4()
+>>> imap.login('user', 'pass')
+>>> imap.select()
+>>> typ, data = imap.search(None, 'ALL')
+>>> for num in data[0].split():
+...    typ, data = imap.fetch(num, '(RFC822)')
+...    print 'Message %s\n%s\n' % (num, data[0][1])
+>>> imap.close()
+>>> imap.logout()</pre></code>
+        </section>
+
+        <section>
           <h3>importlib.import_module</h3>
+          <div class="count">17</div>
           <pre><code class="python">>>> from importlib import import_module
 >>> import_module('urllib')
 &lt;module 'urllib' from ...&gt;</code></pre>
@@ -195,6 +265,7 @@ True</code></pre>
 
         <section>
           <h3>inspect.getmoduleinfo</h3>
+          <div class="count">18</div>
           <pre><code class="python">>>> import inspect
 >>> inspect.getmoduleinfo('../settings_local.pyc')
 ModuleInfo(name='settings_local', suffix='.pyc',
@@ -204,6 +275,7 @@ ModuleInfo(name='settings_local', suffix='.pyc',
 
        <section>
           <h3>inspect.getsource</h3>
+          <div class="count">19</div>
           <pre><code class="python">>>> import inspect, urllib
 >>> inspect.getsource(urllib.urlopen)
 'def urlopen(url, data=None, proxies=None):\n...'</code></pre>
@@ -212,6 +284,7 @@ ModuleInfo(name='settings_local', suffix='.pyc',
 
         <section>
           <h3>inspect.stack</h3>
+          <div class="count">20</div>
           <pre><code class="python">>>> import inspect
 >>> inspect.stack()
 [(&lt;frame object at 0x7fdd21cbf490&gt;, '&lt;stdin&gt;', 1,
@@ -220,6 +293,7 @@ ModuleInfo(name='settings_local', suffix='.pyc',
 
        <section>
           <h3>itertools.groupby</h3>
+          <div class="count">21</div>
           <pre><code class="python">>>> from itertools import groupby
 >>> x = [1,1,3,3,3,3,3,4,5,6]
 >>> for x, g in groupby(x):
@@ -234,6 +308,7 @@ ModuleInfo(name='settings_local', suffix='.pyc',
 
        <section>
           <h3>itertools.chain</h3>
+          <div class="count">22</div>
           <pre><code class="python">>>> from itertools import chain
 >>> for x in chain('a', 'bc'):
 ...     print x
@@ -246,6 +321,7 @@ c</code></pre>
 
        <section>
           <h3>itertools.imap</h3>
+          <div class="count">23</div>
           <pre><code class="python">>>> from itertools import imap
 >>> for x in itertools.imap(str.upper, ['a','b']):
 ...     print x
@@ -257,6 +333,7 @@ B</code></pre>
 
         <section>
           <h3>json</h3>
+          <div class="count">24</div>
 <pre><code class="python">$ echo '{"foo": "lorem", "bar": "ipsum"}'\
   | python -m json.tool
 {
@@ -266,9 +343,27 @@ B</code></pre>
           <div class="version">2.6</div>
         </section>
 
-
         <section>
+          <h3>locale</h3>
+          <div class="count">25</div>
+          <pre><code class="python">>>> import locale
+>>> locale.setlocale(locale.LC_ALL, 'fr_FR')
+'fr_FR'
+>>> locale.currency(10)
+'10,00 Eu'</code></pre>
+        </section>
+
+       <section>
+        <h3>operator</h3>
+          <div class="count">26</div>
+        <pre><code class="python">>>> import operator
+>>> map(operator.mul, [1,2,3], [4,5,6])
+[4, 10, 18]</code></pre>
+       </section>
+
+       <section>
           <h3>pdb</h3>
+          <div class="count">27</div>
 <pre><code class="python">$ python -m pdb foo.py
 > foo.py(1)<module>()
 -> import smtplib
@@ -278,6 +373,7 @@ B</code></pre>
 
         <section>
           <h3>pdb.set_trace</h3>
+          <div class="count">28</div>
           <pre><code class="python">>>> import pdb; pdb.set_trace()
 --Return--
 > <stdin>(1)<module>()->None
@@ -286,6 +382,7 @@ B</code></pre>
 
         <section>
           <h3>pdb.pm</h3>
+          <div class="count">29</div>
 <pre><code class="python">>>> import pdb
 >>> import mymodule
 >>> mymodule.test()
@@ -302,6 +399,7 @@ NameError: spam
 
         <section>
           <h3>profile</h3>
+          <div class="count">30</div>
           <pre><code class="python smaller">$ python -m profile foo.py -s ncalls
 5961 function calls (5896 primitive calls) in 0.076...
 
@@ -316,7 +414,18 @@ ncalls  tottime  percall  cumtime  percall filename:lineno(function)
         </section>
 
         <section>
+          <h3>re &raquo; expand</h3>
+          <div class="count">31</div>
+          <pre><code class="python">>>> import re
+>>> match = re.match('(?P&lt;first&gt;\w+) (?P&lt;last&gt;\w+)',
+                     'Isaac Newton')
+>>> match.expand('\g&lt;last&gt; \g&lt;first&gt;')
+'Newton Isaac'</pre></code>
+        </section>
+
+        <section>
         <h3>sets (and set)</h3>
+          <div class="count">32</div>
           <pre><code class="python">>>> set([1,2,3]).intersection(set([3,4,5]))
 set([3])</code></pre>
           <div class="version">2.3 &raquo; 2.6 (now a built-in)</div>
@@ -325,13 +434,15 @@ set([3])</code></pre>
 
         <section>
           <h3>SimpleHTTPServer</h3>
+          <div class="count">33</div>
 <pre><code class="python">$ python -m SimpleHTTPServer
 Serving HTTP on 0.0.0.0 port 8000 ...</code></pre>
         </section>
 
         <section>
           <h3>smtpd</h3>
-<pre><code class="python">$ python -m smtpd -n -c DebuggingServer localhost:2000
+          <div class="count">34</div>
+<pre><code class="python smaller">$ python -m smtpd -n -c DebuggingServer localhost:2000
 ---------- MESSAGE FOLLOWS ----------
 From: bob@site.com
 To: jane@site.com
@@ -342,7 +453,8 @@ ConFoo
         </section>
 
         <section>
-        <h3>tempfile.NamedTemporaryFile</h3>
+        <h3>tempfile</h3>
+          <div class="count">35</div>
         <pre><code class="python">>>> import os
 >>> from tempfile import NamedTemporaryFile
 >>> tmp = NamedTemporaryFile()
@@ -358,6 +470,7 @@ False</code></pre>
 
         <section>
           <h3>timeit.timeit</h3>
+          <div class="count">36</div>
 <pre><code class="python">>>> import timeit
 >>> timeit.timeit(
 ...     '",".join(str(n) for n in range(100))',
@@ -368,6 +481,7 @@ False</code></pre>
 
         <section>
           <h3>trace</h3>
+          <div class="count">37</div>
 <pre><code class="python">$ python -m trace --trace foo.py
  --- modulename: threading, funcname: settrace
 threading.py(90):     _trace_hook = func
@@ -383,13 +497,15 @@ socket.py(46): import _socket</pre></code>
 
         <section>
           <h3>unicodedata.lookup</h3>
+          <div class="count">38</div>
 <pre><code class="python">$ python -c "import unicodedata;\
   print unicodedata.lookup('SNOWMAN')"
 ☃</code></pre>
         </section>
 
         <section>
-        <h3>unittest.mock Mock</h3>
+        <h3>unittest.mock &raquo; Mock</h3>
+          <div class="count">39</div>
 <pre><code class="python">>>> from unittest.mock import Mock
 >>> thing = Mock()
 >>> thing.method()
@@ -401,7 +517,8 @@ socket.py(46): import _socket</pre></code>
         </section>
 
         <section>
-        <h3>unittest.mock patch</h3>
+        <h3>unittest.mock &raquo; patch</h3>
+          <div class="count">40</div>
           <pre><code class="python">@patch('requests.post')
 def test_auth_fails(self, post):
     post.side_effect = AuthError
@@ -412,6 +529,7 @@ def test_auth_fails(self, post):
 
         <section>
           <h3>urllib.parse.urlparse</h3>
+          <div class="count">41</div>
 <pre><code class="python">>>> from urllib.parse import urlparse, urlunparse
 >>> urlparse('http://mozilla.org')
 ParseResult(scheme='http', netloc='mozilla.org',
@@ -423,7 +541,19 @@ ParseResult(scheme='http', netloc='mozilla.org',
         </section>
 
         <section>
+          <h3>uuid.uuid1</h3>
+          <div class="count">42</div>
+          <pre><code class="python">>>> import uuid
+>>> uuid.getnode()
+123516846201053
+>>> str(uuid.uuid1())
+'d4547447-8047-11e2-be45-705681bdd8dd'</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
           <h3>venv.create</h3>
+          <div class="count">43</div>
           <pre><code class="python">>>> import venv
 >>> venv.create('/tmp/venv')</code></pre>
           <div class="version">3.3</div>
@@ -431,11 +561,46 @@ ParseResult(scheme='http', netloc='mozilla.org',
         </section>
 
         <section>
-          <h3>Easter eggs</h3>
+          <h3>wsgiref</h3>
+          <div class="count">44</div>
+          <pre><code class="python">>>> from wsgiref.simple_server import make_server
+>>> def hello_world_app(environ, start_response):
+...     start_response(
+          '200 OK',
+          [('Content-type', 'text/plain')])
+...     return ['Hello world']
+...
+>>> httpd = make_server('', 8000, hello_world_app)
+>>> httpd.serve_forever()</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
+          <h3>wsgiref &raquo; error_status</h3>
+          <div class="count">45</div>
+          <pre><code class="python">>>> from wsgiref import handlers
+>>> handlers.BaseHandler.error_status
+'500 Dude, this is whack!'</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
+          <h3>xml.etree.ElementTree</h3>
+          <div class="count">46</div>
+          <pre><code class="python">>>> import xml.etree.ElementTree
+>>> tree = ElementTree.parse('country_data.xml')
+>>> tree.getroot().findall('country')
+[<Element country at 1084a6248>, ...]</code></pre>
+          <div class="version">2.5</div>
+        </section>
+
+        <section>
+          <h2>"Easter Eggs"</h2>
         </section>
 
         <section>
           <h3>this</h3>
+          <div class="count">47</div>
 <pre><code class="python">>>> import this
 The Zen of Python, by Tim Peters
 
@@ -448,13 +613,28 @@ Readability counts.
 
         <section>
           <h3>__future__.braces</h3>
+          <div class="count">48</div>
 <pre><code class="python">>>> from __future__ import braces
   File "<stdin>", line 1
 SyntaxError: not a chance</code></pre>
         </section>
 
         <section>
+          <h3>Friendly Language<br />Uncle For Life</h3>
+          <div class="count">49</div>
+<pre><code class="python">>>> from __future__ import barry_as_FLUFL
+>>> print(3!=4)
+  File "<stdin>", line 1
+    print(3!=4)
+            ^
+SyntaxError: invalid syntax
+>>> print(3<>4)
+True</code></pre>
+        </section>
+
+        <section>
           <h3>antigravity</h3>
+          <div class="count">50</div>
 <pre><code class="python">>>> import antigravity</code></pre>
         <div class="version">3</div>
         </section>
@@ -464,7 +644,8 @@ SyntaxError: not a chance</code></pre>
         </section>
 
 				<section>
-					<h1>Fin.</h1>
+        <h2>Fin</h2>
+        <a href="https://github.com/andymckay/presentations">github.com/andymckay/presentations</a>
 				</section>
 
 			</div>
@@ -503,3 +684,4 @@ SyntaxError: not a chance</code></pre>
 
 	</body>
 </html>
+

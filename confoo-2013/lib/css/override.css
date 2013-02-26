@@ -34,3 +34,12 @@ pre {
 code.smaller {
     font-size: 0.8em !important;
 }
+
+div.count {
+    display: inline-block;
+    float: left;
+    margin-top: -1.2em;
+    font-size: 1.55em;
+    line-height: 0.9em;
+    color: #999;
+}
