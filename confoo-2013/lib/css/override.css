@@ -1,3 +1,7 @@
+h1.snowman {
+    font-size: 20em;
+}
+
 h3 {
     font-weight: 600 !important;
 }
@@ -38,8 +42,8 @@ code.smaller {
 div.count {
     display: inline-block;
     float: left;
-    margin-top: -1.2em;
-    font-size: 1.55em;
+    margin-top: -1.7em;
+    font-size: 1em;
     line-height: 0.9em;
     color: #999;
 }
