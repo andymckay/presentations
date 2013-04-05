@@ -1,0 +1,49 @@
+h1.snowman {
+    font-size: 20em;
+}
+
+h3 {
+    font-weight: 600 !important;
+}
+
+pre {
+    font-size: 0.8em !important;
+    width: 100%  !important;
+    margin: 0px !important;
+}
+
+.version {
+    position: float;
+    text-align: left;
+    padding-top: 1em !important;
+}
+
+.note {
+    width: 100%;
+    text-align: left;
+    padding-top: 1em !important;
+    color: #666;
+}
+
+.note::before {
+    content: 'Note: ';
+    font-weight: 600 !important;
+}
+
+.version::before {
+    content: 'Version: ';
+    font-weight: 600 !important;
+}
+
+code.smaller {
+    font-size: 0.8em !important;
+}
+
+div.count {
+    display: inline-block;
+    float: left;
+    margin-top: -1.7em;
+    font-size: 1em;
+    line-height: 0.9em;
+    color: #999;
+}
