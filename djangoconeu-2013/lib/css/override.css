@@ -47,3 +47,18 @@ div.count {
     line-height: 0.9em;
     color: #999;
 }
+
+html.fox body section {
+    margin-top: 3em;
+}
+
+html.fox body img {
+    display: block;
+}
+
+html.fox body div.reveal {
+    background-image: url("fox-lead.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
