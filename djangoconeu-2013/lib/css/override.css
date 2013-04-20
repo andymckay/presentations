@@ -56,9 +56,24 @@ html.fox body img {
     display: block;
 }
 
-html.fox body div.reveal {
-    background-image: url("fox-lead.png");
+div.reveal {
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100%;
+}
+
+html.fox body div.reveal {
+    background-image: url("fox-lead.png");
+    background-size: contain;
+}
+
+html.amo body div.reveal {
+    background-image: url("contributions.png");
+}
+
+html.solitude body div.reveal {
+    background-image: url("solitude.png");
+}
+
+body {
+    background: radial-gradient(rgb(255, 255, 255), rgb(212, 221, 228)) repeat scroll 0% 0% rgb(0, 0, 0);
 }
