@@ -74,6 +74,28 @@ html.solitude body div.reveal {
     background-image: url("solitude.png");
 }
 
+html.paranoia body div.reveal {
+    background-image: url("keep-calm-and-tell-security.png");
+}
+
+html.eek body {
+    background: radial-gradient(rgb(220, 60, 40), rgb(120, 24, 11)) repeat scroll 0% 0% rgb(0, 0, 0);
+}
+
+html.eek body h2 {
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgb(102, 102, 102);
+}
+
 body {
     background: radial-gradient(rgb(255, 255, 255), rgb(212, 221, 228)) repeat scroll 0% 0% rgb(0, 0, 0);
+}
+
+.reveal h2 {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+.reveal p {
+    font-size: 1.5em;
 }
