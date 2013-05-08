@@ -50,8 +50,15 @@
 
         <section>
           <h2>Marketplace</h2>
+          <p>Don't call it an "App store"</p>
           <p>Django powered</p>
           <p>Accepts payments</p>
+        </section>
+
+        <section>
+          <h2>Open source</h2>
+          <p class="fragment"><a href="https://zamboni.readthedocs.org/en/latest/">Zamboni</a></p>
+          <p class="fragment">There is a security bug bounty</p>
         </section>
 
         <section data-state="amo">
@@ -63,19 +70,21 @@
         </section>
 
         <section data-state="eek">
-          <h2>Tokens</h2>
+          <h2>... means tokens</h2>
         </section>
 
-        <section>
-          <h2>How many attack<br> vectors are there?</h2>
+        <section data-state="eek">
+          <h2>How hard is to<br>commit fraud?</h2>
         </section>
 
         <section>
           <p>SQL injection</p>
-          <p>XSS</p>
-          <p>Remote execution</p>
-          <p>Identity</p>
-          <p>Pishing</p>
+          <p class="fragment">XSS</p>
+          <p class="fragment">Remote execution</p>
+        </section>
+
+        <section>
+          <p>Existing library problems</p>
         </section>
 
         <section>
@@ -83,15 +92,25 @@
         </section>
 
         <section>
-          <h2>One database<br>mulitple data policies</h2>
+          <h2>One database</h2>
+          <p>Mulitple data policies</p>
+          <p>SQL Injection vulnerable</p>
+        </section>
+
+        <section>
+          <h2>Split the site</h2>
         </section>
 
         <section data-state="solitude">
           <p style="margin-top: 20em; font-size: 50%">Solitude is a beer by <a href="http://breweryvivant.com/index.php/the-beer/packaged-beer/solitude/">Brewery Vivant</a>. The logo is theirs.</p>
+          <p><a href="https://solitude.readthedocs.org/en/latest/">Solitude</a></p>
         </section>
 
         <section>
-          <p>Sperate instance</p>
+          <p>REST API to payment</p>
+          <p class="fragment">Secure storage</p>
+          <p class="fragment">Reuse within Mozilla</p>
+          <p class="fragment">Django and Tastypie</p>
         </section>
 
         <section>
@@ -99,28 +118,110 @@
         </section>
 
         <section>
+          <img src="lib/css/more-solitude.png" />
+        </section>
+
+        <section>
+          <img src="lib/css/solitude-proxy.png" />
+        </section>
+
+        <section>
+          <img src="lib/css/solitude-proxy-parts.png" />
+        </section>
+
+        <section>
+          <h2>Defence by depth</h2>
+        </section>
+
+        <section>
+          <h2>Accessing Solitude</h2>
+          <p>via requests</p>
+          <p>using OAuth</p>
+        </section>
+
+        <section>
+           <h2>Bad</h2>
+           <pre><code class="python">try:
+    result = request.get(url)
+except request.HTTPError:
+    # check error status code.
+    raise
+
+# process results.
+</code></pre>
+           </section>
+
+        <section>
+          <h2>Curling</h2>
+          <p>a little <a href"https://curling.readthedocs.org/">wrapper</a> around <a href="https://github.com/dstufft/slumber/">slumber</a></p>
+        </section>
+
+        <section>
+           <h2>Better</h2>
+           <pre><code class="python">try:
+    result = curling.generic.get_object(id='foo')
+except ObjectNotFound:
+    raise
+
+# process results.
+</code></pre>
+        </section>
+
+        <section>
           <h2>OWASP</h2>
           <p><a href="https://www.owasp.org/index.php/AppSensor_DetectionPoints">Detection Points</a></p>
         </section>
 
-        <section data-state="paranoia">
+        <section>
+          <p><img src="lib/css/keep-calm-and-tell-security.png" /></p>
+          <p><a href="https://django-paranoia.readthedocs.org/en/latest/">Paranoia</a></p>
         </section>
 
         <section>
-          Django doesn't do this
+          <h2>Spot attempts</h2>
+          <p class="fragment">And log to security</p>
+          <p class="fragment">via CEF</p>
+          <p class="fragment">to Arcsight</p>
         </section>
 
         <section>
-          Form log
+          <h2>Paranoid forms</h2>
+          <pre><code class="python">from django_paranoia.forms import ParanoidForm
+
+class Scary(ParanoidForm):
+   id = forms.CharField()
+</code></pre>
         </section>
 
         <section>
-          Session changes
+          <h2>When</h2>
+          <p class="fragment"><b>more</b> keys are submitted</p>
+          <p class="fragment"><b>less</b> keys are submitted</p>
+          <p class="fragment">a key or value contains an ascii character less than 32<br>(except \t, \r, \n)</p>
         </section>
 
         <section>
-        SQL? XSS?
-        DECLARE%20@S%20VARCHAR(4000);SET%20@S=CAST(0x444...)
+          <h2>Session</h2>
+          <pre><code class="python">SESSION_ENGINE = 'django_paranoia.sessions'
+
+MIDDLEWARE_CLASSES = (
+ ...
+ 'django_paranoia.sessions.ParanoidSessionMiddleware',
+)
+</code></pre>
+        </section>
+
+        <section>
+          <h2>When</h2>
+          <p class="fragment">IP address changes</p>
+          <p class="fragment">user agent changes</p>
+        </section>
+
+        <section>
+          <h2>Didn't do</h2>
+          <p>XSS?</p>
+          <p>SQL?</p>
+          <pre class="fragment"><code class="sql">DECLARE%20@S%20VARCHAR(4000);SET%20@S=CAST(0x444...)</code></pre>
         </section>
 
         <section>
