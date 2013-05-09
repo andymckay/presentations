@@ -74,17 +74,32 @@
         </section>
 
         <section data-state="eek">
-          <h2>How hard is to<br>commit fraud?</h2>
+          <h2>tokens <span class="amp">&</span> credentials</h2>
         </section>
 
         <section>
-          <p>SQL injection</p>
+          <h2>Vulnerabilities</h2>
           <p class="fragment">XSS</p>
-          <p class="fragment">Remote execution</p>
         </section>
 
+        <section data-state="good">
+          <h2>CSP</h2>
+          <p><a href="https://developer.mozilla.org/en-US/docs/Security/CSP">MDN docs</a></p>
+          <p><a href="https://github.com/blog/1477-content-security-policy">Github blog</a></p>
+        </section>
+
+        <section data-state="good">
+          <h2>navigator.mozPay</h2>
+          <p>and a trusted UI</p>
+          <p><a href="https://wiki.mozilla.org/WebAPI/WebPayment">MDN docs</a></p>
+        </section>
+
+
         <section>
-          <p>Existing library problems</p>
+          <p><strike>XSS</strike></p>
+          <p class="fragment">SQL injection</p>
+          <p class="fragment">Remote execution</p>
+          <p class="fragment">Ourselves</p>
         </section>
 
         <section>
@@ -93,16 +108,17 @@
 
         <section>
           <h2>One database</h2>
-          <p>Mulitple data policies</p>
-          <p>SQL Injection vulnerable</p>
+          <p>multiple data policies</p>
+          <p>SQL injection vulnerable</p>
         </section>
 
         <section>
           <h2>Split the site</h2>
         </section>
 
-        <section data-state="solitude">
-          <p style="margin-top: 20em; font-size: 50%">Solitude is a beer by <a href="http://breweryvivant.com/index.php/the-beer/packaged-beer/solitude/">Brewery Vivant</a>. The logo is theirs.</p>
+        <section>
+          <img src="lib/css/solitude.png" />
+          <p style="font-size: 50%">Solitude is a beer by <a href="http://breweryvivant.com/index.php/the-beer/packaged-beer/solitude/">Brewery Vivant</a>. The logo is theirs.</p>
           <p><a href="https://solitude.readthedocs.org/en/latest/">Solitude</a></p>
         </section>
 
@@ -131,6 +147,7 @@
 
         <section>
           <h2>Defence by depth</h2>
+          <p class="fragment"><a href="http://benlog.com/articles/2010/09/07/defending-against-your-own-stupidity/">"Sometimes it means hedging against your own stupidity"</a></p>
         </section>
 
         <section>
@@ -165,6 +182,11 @@ except ObjectNotFound:
 
 # process results.
 </code></pre>
+        </section>
+
+        <section>
+          <h2>Oh, SSL Certs?</h2>
+          <p>use <a href="http://www.python-requests.org/en/latest/user/advanced/#ssl-cert-verification">requests</a></p>
         </section>
 
         <section>
@@ -225,19 +247,40 @@ MIDDLEWARE_CLASSES = (
         </section>
 
         <section>
-          Prioritsation
+          <h2>Inside the db</h2>
+          <p>encryption</p>
+          <p>hashing</p>
         </section>
 
         <section>
-        What to encrypt?
-        What to hash?
+          <h2>What to encrypt?</h2>
+          <p><a href="https://github.com/andymckay/django-aesfield">django-aesfield</a></p>
+          <p>keys not stored on the db server</p>
         </section>
 
+        <section>
+          <h2>Other leakage</h2>
+          <p><a href="https://docs.djangoproject.com/en/1.4/howto/error-reporting/#filtering-sensitive-information">filter <b>out</b> sensitive</a></p>
+        </section>
 
         <section>
-        <h2>Fin</h2>
-              <a href="http://twitter.com/andymckay">@andymckay</a><br>
-        <a href="https://github.com/andymckay/presentations">github.com/andymckay/presentations</a>
+          <h2>Where now?</h2>
+          <p>Shipping v1 of a phone is hard</p>
+          <p>Any day now</p>
+          <p class="fragment">... honest</p>
+        </section>
+
+        <section>
+          <h2>Firefox OS</h2>
+          <p>Poland workshop</p>
+          <p>Warsaw, Saturday, June 1</p>
+          <p><a href="https://docs.google.com/forms/d/1fiH88AmAV2SXJF4sEi1zJI-OEQ7UmuIHxHYjFNU92aA/viewform">Sign up</a></p>
+        </section>
+
+        <section>
+          <h2>Fin</h2>
+          <a href="http://twitter.com/andymckay">@andymckay</a><br>
+          <a href="https://github.com/andymckay/presentations">github.com/andymckay/presentations</a>
 				</section>
 
 			</div>
@@ -252,11 +295,11 @@ MIDDLEWARE_CLASSES = (
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
-				progress: true,
+				controls: false,
+				progress: false,
 				history: true,
 				center: true,
-
+        rollingLinks: false,
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
 
