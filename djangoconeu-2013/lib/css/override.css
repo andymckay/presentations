@@ -62,20 +62,20 @@ div.reveal {
 }
 
 html.fox body div.reveal {
-    background-image: url("fox-lead.png");
+    background-image: url("../fox-lead.png");
     background-size: contain;
 }
 
 html.amo body div.reveal {
-    background-image: url("contributions.png");
+    background-image: url("../contributions.png");
 }
 
 html.solitude body div.reveal {
-    background-image: url("solitude.png");
+    background-image: url("../solitude.png");
 }
 
 html.paranoia body div.reveal {
-    background-image: url("keep-calm-and-tell-security.png");
+    background-image: url("../keep-calm-and-tell-security.png");
 }
 
 html.eek body {
