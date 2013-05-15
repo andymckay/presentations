@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="css/theme/one-mozilla.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -45,7 +45,11 @@
         </section>
 
         <section data-state="fox">
-        <img src="lib/css/firefox-os_wordmark-only_RGB.png" data-state="wordmark" />
+        <img src="lib/firefox-os_wordmark-only_RGB.png" data-state="wordmark" />
+        </section>
+
+        <section>
+        <img src="lib/holden.png" />
         </section>
 
         <section>
@@ -53,6 +57,10 @@
           <p>Don't call it an "App store"</p>
           <p>Django powered</p>
           <p>Accepts payments</p>
+        </section>
+
+        <section>
+          <video src="lib/happy.ogg" controls></video>
         </section>
 
         <section>
@@ -83,9 +91,15 @@
         </section>
 
         <section data-state="good">
-          <h2>CSP</h2>
+          <h2>Content Security<br> Policy</h2>
           <p><a href="https://developer.mozilla.org/en-US/docs/Security/CSP">MDN docs</a></p>
           <p><a href="https://github.com/blog/1477-content-security-policy">Github blog</a></p>
+        </section>
+
+        <section>
+          <h2>Vulnerabilities</h2>
+          <p class="fragment"><strike>XSS</strike></p>
+          <p class="fragment">Phishing</p>
         </section>
 
         <section data-state="good">
@@ -94,16 +108,17 @@
           <p><a href="https://wiki.mozilla.org/WebAPI/WebPayment">MDN docs</a></p>
         </section>
 
-
         <section>
-          <p><strike>XSS</strike></p>
+          <h2>Vulnerabilities</h2>
+          <p class="fragment"><strike>XSS</strike></p>
+          <p class="fragment"><strike>Phishing</strike></p>
           <p class="fragment">SQL injection</p>
           <p class="fragment">Remote execution</p>
           <p class="fragment">Ourselves</p>
         </section>
 
         <section>
-          <img src="lib/css/db-1.png" />
+          <img src="lib/db-1.png" />
         </section>
 
         <section>
@@ -117,9 +132,13 @@
         </section>
 
         <section>
-          <img src="lib/css/solitude.png" />
+          <img src="lib/solitude.png" />
           <p style="font-size: 50%">Solitude is a beer by <a href="http://breweryvivant.com/index.php/the-beer/packaged-beer/solitude/">Brewery Vivant</a>. The logo is theirs.</p>
           <p><a href="https://solitude.readthedocs.org/en/latest/">Solitude</a></p>
+        </section>
+
+        <section>
+          <p><img src="lib/beer.png"></p>
         </section>
 
         <section>
@@ -127,22 +146,36 @@
           <p class="fragment">Secure storage</p>
           <p class="fragment">Reuse within Mozilla</p>
           <p class="fragment">Django and Tastypie</p>
+          <p class="fragment">... soon to be not Tastypie</p>
+        </section>
+
+       <section>
+          <h2>Inside the db</h2>
+          <p>encrypted</p>
+          <p>hashed</p>
+          <p>retention policy</p>
         </section>
 
         <section>
-          <img src="lib/css/solitude-1.png" />
+          <h2>What to encrypt?</h2>
+          <p><a href="https://github.com/andymckay/django-aesfield">django-aesfield</a></p>
+          <p>keys not stored on the db server</p>
         </section>
 
         <section>
-          <img src="lib/css/more-solitude.png" />
+          <img src="lib/solitude-1.png" />
         </section>
 
         <section>
-          <img src="lib/css/solitude-proxy.png" />
+          <img src="lib/more-solitude.png" />
         </section>
 
         <section>
-          <img src="lib/css/solitude-proxy-parts.png" />
+          <img src="lib/solitude-proxy-parts.png" />
+        </section>
+
+        <section>
+          <img src="lib/solitude-webpay.png" />
         </section>
 
         <section>
@@ -153,7 +186,8 @@
         <section>
           <h2>Accessing Solitude</h2>
           <p>via requests</p>
-          <p>using OAuth</p>
+          <p>OAuth 1.0 required</p>
+          <p>as little network access as possible</p>
         </section>
 
         <section>
@@ -166,22 +200,30 @@ except request.HTTPError:
 
 # process results.
 </code></pre>
-           </section>
-
-        <section>
-          <h2>Curling</h2>
-          <p>a little <a href"https://curling.readthedocs.org/">wrapper</a> around <a href="https://github.com/dstufft/slumber/">slumber</a></p>
         </section>
 
         <section>
            <h2>Better</h2>
            <pre><code class="python">try:
-    result = curling.generic.get_object(id='foo')
+    result = curling.generic.blah.get_object(id='foo')
 except ObjectNotFound:
     raise
 
 # process results.
 </code></pre>
+        </section>
+
+        <section>
+          <h2>Curling</h2>
+          <p>a little <a href"https://curling.readthedocs.org/">wrapper</a> around <a href="https://github.com/dstufft/slumber/">slumber</a></p>
+          <p class="fragment">OAuth</p>
+          <p class="fragment">convenience methods</p>
+          <p class="fragment">metrics</p>
+        </section>
+
+        <section>
+          <h2>Metrics</h2>
+          <p><img src="lib/graphite.png"></p>
         </section>
 
         <section>
@@ -195,8 +237,8 @@ except ObjectNotFound:
         </section>
 
         <section>
-          <p><img src="lib/css/keep-calm-and-tell-security.png" /></p>
-          <p><a href="https://django-paranoia.readthedocs.org/en/latest/">Paranoia</a></p>
+          <p><img src="lib/keep-calm-and-tell-security.png" /></p>
+          <p><a href="https://django-paranoia.readthedocs.org/en/latest/">django-paranoia</a></p>
         </section>
 
         <section>
@@ -204,6 +246,7 @@ except ObjectNotFound:
           <p class="fragment">And log to security</p>
           <p class="fragment">via CEF</p>
           <p class="fragment">to Arcsight</p>
+          <p class="fragment"><b>all</b> requests get logged</p>
         </section>
 
         <section>
@@ -235,8 +278,8 @@ MIDDLEWARE_CLASSES = (
 
         <section>
           <h2>When</h2>
-          <p class="fragment">IP address changes</p>
           <p class="fragment">user agent changes</p>
+          <p class="fragment">IP address changes <span class="fragment">(maybe)</span></p>
         </section>
 
         <section>
@@ -247,20 +290,16 @@ MIDDLEWARE_CLASSES = (
         </section>
 
         <section>
-          <h2>Inside the db</h2>
-          <p>encryption</p>
-          <p>hashing</p>
-        </section>
-
-        <section>
-          <h2>What to encrypt?</h2>
-          <p><a href="https://github.com/andymckay/django-aesfield">django-aesfield</a></p>
-          <p>keys not stored on the db server</p>
+          <h2>Triggers</h2>
+          <p>security and statsd logging</p>
+          <p class="fragment">"When refunds go over 50% of normal in Poland"</p>
         </section>
 
         <section>
           <h2>Other leakage</h2>
-          <p><a href="https://docs.djangoproject.com/en/1.4/howto/error-reporting/#filtering-sensitive-information">filter <b>out</b> sensitive</a></p>
+          <p><a href="https://docs.djangoproject.com/en/1.4/howto/error-reporting/#filtering-sensitive-information">filter <b>out</b> sensitive</a> values</p>
+          <p>error reporting in sentry</p>
+          <p>logs</p>
         </section>
 
         <section>
