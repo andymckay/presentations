@@ -34,7 +34,7 @@
 			<div class="slides">
 
         <section>
-        <h2>Payments in <br>the Marketplace</h2>
+        <h2>Payments in <br>the Firefox Marketplace</h2>
           <p>
             <small>
               <a href="http://www.agmweb.ca/blog/andy">Andy McKay</a><br>
@@ -45,125 +45,217 @@
         </section>
 
         <section>
-        <h3>Marketplace</h3>
-        <p>The main place to get apps.</p>
+          <h3>Firefox Marketplace</h3>
+          <p>App installed on all Firefox OS phones</p>
+          <p>
+          <img src="img/marketplace.png" />
         </section>
 
         <section>
-          <h3>No lock in</h3>
-          <p>You are <b>free</b> to do payments any way you choose.</p>
-          <p>You do not have to use the Marketplace.</p>
+          <h3>Payments</h3>
+          <p>Allow developers to get paid for their apps</p>
+          <div class="fragment">
+            <p>There is <b>no lock in</b></h3>
+            <p>You are <b>free</b> to do payments any way you choose</p>
+            <p>You can <i>optionally</i> list apps in the Marketplace and <i>optionally</i> use our payments system</p>
+          </div>
+          <p class="fragment">Current revenue share varies (<a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/App_pricing">please see docs</a>)</p>
         </section>
 
         <section>
-          <h3>Two methods</h3>
-          <p>Paid app</p>
-          <p>In-app payment</p>
-          <p>Carrier payment</p>
+          <h3>In action</h3>
+          <p><b>INSERT VIDEO HERE</b></p>
+        </section>
+
+        <section>
+          <h3>Payment methods</h3>
+          <p>Operator payment: amount appears on your phone bill</p>
           <p>Credit card payment</p>
         </section>
 
         <section>
           <h3>Countries</h3>
-          <p>Rolling out per country as the phones launch.</p>
-          <p>https://marketplace.firefox.com/developers/docs/payments/status</p>
+          <p>Rolling out per country as the phones launch</p>
+          <p>Currently working in: <b>Colombia, Poland, Spain</b></p>
+          <p class="fragment">In testing in: <b>UK, US, Venezuela</b></p>
+          <p class="fragment">Check our <a href="https://marketplace.firefox.com/developers/docs/payments/status">status page</a></p>
         </section>
 
         <section>
-          <h3>How to setup</h3>
+          <h3>How to setup payments</h3>
           <ol>
             <li>Make an awesome app</li>
-            <li>Register your app on the marketplace</li>
+            <li>Register your app on the Marketplace</li>
+            <li>To accept payments your app will have to be Firefox OS compatible, only</li>
           </ol>
         </section>
 
         <section>
           <h3>Create a payment account</h3>
-          <p>So the payment provider (currently Bango) can pay you.</p>
+          <p>So the payment provider (currently Bango) can pay you</p>
+          <img src="img/add-account.png" />
         </section>
 
         <section>
           <h3>Price points</h3>
-          <p>A price point represents one price across regions, currencies and carriers.</p>
-          <p>e.g: Tier 10, US $0.99, COP $2060.00, 3.99 zł, €0.89</p>
-          <p>https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/App_pricing</p>
+          <p>A price point represents one price across regions, currencies and carriers</p>
+          <img src="img/tiers.png" />
+          <p>Read the <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/App_pricing">docs on pricing</a></p>
         </section>
 
         <section>
-          <h3>Choose price point</h3>
-          <p>Paid apps only</p>
-          <p>In-app payments can use any price point</p>
+          <h3>Price point</h3>
+          <p>Paid apps must choose one</p>
+          <p>In-app payments can use any price points</p>
+          <img src="img/in-app-choices.png" />
         </section>
 
         <section>
-          <h3>Then...</h3>
-          <p>You will need to do a bit of work in your app.</p>
+          <h3>But...</h3>
+          <p>Before you publish, you will need to do a bit of work in your app.</p>
         </section>
 
         <section>
-          <h3>Paid apps</h3>
-          <p>After the payment is processed</p>
-          <p>Receipt is installed</p>
-          <p>https://wiki.mozilla.org/Apps/WebApplicationReceipt</p>
-        </section>
-
-        <section>
-          <h3>Receipt is proof of payment</h3>
-          <p>It is the app developers job to check receipts.</p>
-          <p>If you <b>do not</b> check receipts, your app can be installed for free.</p>
+          <h3>For paid apps</h3>
+          <p>After the payment is processed, a receipt is installed</p>
+          <p>Read the <a href="https://wiki.mozilla.org/Apps/WebApplicationReceipt">docs on receipts</a></p>
+          <p class="fragment">It is the <b>app developers</b> job to check receipts</p>
+          <p class="fragment">If you <b>do not</b> check receipts, your app can be used for free</p>
         </section>
 
         <section>
           <h3>Receipt verification</h3>
-          <p>https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/Validating_a_receipt</p>
-          <p>Library: https://github.com/mozilla/receiptverifier</p>
           <ol>
             <li>Check crypto</li>
-            <li>Check contents</li>
-            <li>Verify against the marketplace</li>
+            <li>Check contents
+              <ul>
+                <li>its from a store you approve of</li>
+                <li>its for your app</li>
+                <li>its of the right type</li>
+              </ul>
+            </li>
+            <li class="fragment">(Optionally) Verify against the marketplace</li>
+            <li class="fragment">(Optionally) Verify against your own servers <sup>*</sup></li>
           </ol>
+          <div class="fragment">
+            <hr></hr>
+            <p>Read the <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/Validating_a_receipt">docs on verification</a></p>
+            <p>Use the <a href="https://github.com/mozilla/receiptverifier">library</a></p>
+          </div>
         </section>
 
         <section>
           <h3>Receipt errors</h3>
-          <p>Up to you:</p>
+          <p>Up to the app developer:</p>
           <ol>
             <li>When to check receipts</li>
-            <li>What to do when it fail</li>
+            <li>What to do when it fails</li>
           </ol>
         </section>
 
         <section>
           <h3>In app payments</h3>
-          <p>Create some JSON that represents your payment in your app.</p>
-          <p>Call navigator.mozPay</p>
-          <p>https://developer.mozilla.org/en-US/docs/Web/API/window.navigator.mozPay</p>
-          <p>The payment flow will start.</p>
+          <p>Payment keys to identify your app</p>
+          <img src="img/in-app-keys.png" />
+        </section>
+
+        <section>
+          <h3>Create a button</h3>
+          <pre><code class="html">
+&lt;button id="purchase"&gt;
+  Purchase Magical Unicorn for $0.99
+&lt;/button&gt;
+          </code></pre>
+          <p>There is <a href="http://firefox-marketplace-api.readthedocs.org/en/latest/topics/payment.html#localized-tier">an API</a> to help you localise using the language
+        </section>
+
+        <section>
+          <h3>Start payment</h3>
+          <p>Create some JSON that shows the payment in your app</p>
+          <p>A truncated example:</p>
+          <pre><code class="javascript">
+{
+  "iss": APPLICATION_KEY,
+  "aud": "marketplace.firefox.com",
+  "typ": "mozilla/payments/pay/v1",
+  "request": {
+    "id": "915c07fc-87df-46e5-9513-45cb6e504e39",
+    "pricePoint": 10,
+    "name": "Magical Unicorn" ...
+          </code></pre>
+          <p>Read the <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/In-app_payments">docs on making in-app payments</a></p>
+       </section>
+
+       <section>
+          <h3>Sign the request</h3>
+          <p>Sign the request with the secret,<br> there are <a href="https://github.com/progrium/pyjwt">libraries for this</a></p>
+          <p>Call <code>navigator.mozPay</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/API/window.navigator.mozPay">docs</a>) with the signed JSON</p>
+          <p>The payment flow will start</p>
+          <p class="fragment">Signing should be <b>done on a server</b>, because distributing the secret in your app is not secure</p>
         </section>
 
         <section>
           <h3>Handling the response</h3>
-          <p>We will post the response to you.</p>
-          <p>Your job to handle the response.</p>
+          <p>We will post the response to you</p>
+          <p>A truncated example:</p>
+          <pre><code class="javascript">
+{
+  "iss": "marketplace.firefox.com",
+  "aud": APPLICATION_KEY,
+  "typ": "mozilla/payments/pay/postback/v1",
+  ...
+  "response": {
+    "transactionID": "webpay:84294ec6-7352",
+    "price": {"amount": "0.99", "currency": "CAD"}
+  }
+}
+         </code></pre>
         </section>
 
         <section>
-          <h3>Handling</h3>
-          <p>More here</p>
-          <p>https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/In-app_payments</p>
+          <h3>Handling the response (pt. 2)</h3>
+          <p>Tell us you received it</p>
+          <p>It's your job to maintain a list of purchases</p>
+          <pre><code class="javascript">
+HTTP/1.1 200 OK
+Content-Type: text/plain
+
+webpay:84294ec6-7352
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Refunds and chargebacks</h3>
+          <p>Similarly done through posts which you must respond to</p>
+        </section>
+
+        <section>
+          <h3>Testing all this</h3>
+          <p>You can make <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/In-app_payments#Simulating_payments">simulated in app payments</a></p>
+          <p>You can make test receipts (you can also do this in the simulator)</p>
+          <img src="img/test-receipt.png" />
+        </section>
+
+        <section>
+          <h3>Once its all done...</h3>
+          <p>Submit to the Marketplace review queue</p>
+          <p>Reviewers will check and give feedback on your app, including payments</p>
+          <p>Once its approved... profit!</p>
         </section>
 
         <section>
           <h3>Example apps</h3>
-          <p>Private yacht</p>
-          <p>Webfighter</p>
+          <p>Paid app that checks receipts: <a href="https://github.com/kumar303/yacht/">Private yacht</a></p>
+          <p>In app that does simulated payments: <a href="https://github.com/jlongster/webfighter">Webfighter</a></p>
         </section>
 
         <section>
           <h3>Help?</h3>
-          <p>dev-webapps https://lists.mozilla.org/listinfo/dev-webapps</p>
-          <p>dev-marketplace https://lists.mozilla.org/listinfo/dev-marketplace</p>
-          <p>IRC: #marketplace</p>
+          <p>Mailing lists:
+          <br><a href="https://lists.mozilla.org/listinfo/dev-webapps">dev-webapps</a>
+          <br><a href="https://lists.mozilla.org/listinfo/dev-marketplace">dev-marketplace</a></p>
+          <p>IRC:
+          <br><a href="https://wiki.mozilla.org/IRC">#marketplace</a></p>
         </section>
 
 				<section>
