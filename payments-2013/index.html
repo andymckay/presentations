@@ -63,13 +63,12 @@
         </section>
 
         <section>
-          <h3>In action</h3>
-          <p><b>INSERT VIDEO HERE</b></p>
+          <video src="lib/happy.ogg" controls></video>
         </section>
 
         <section>
           <h3>Payment methods</h3>
-          <p>Operator payment: amount appears on your phone bill</p>
+          <p>Operator payment: appears on your phone bill</p>
           <p>Credit card payment</p>
         </section>
 
@@ -134,14 +133,24 @@
                 <li>its of the right type</li>
               </ul>
             </li>
-            <li class="fragment">(Optionally) Verify against the marketplace</li>
+            <li class="fragment">(Recommended) Verify against the marketplace</li>
             <li class="fragment">(Optionally) Verify against your own servers <sup>*</sup></li>
           </ol>
-          <div class="fragment">
-            <hr></hr>
-            <p>Read the <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/Validating_a_receipt">docs on verification</a></p>
-            <p>Use the <a href="https://github.com/mozilla/receiptverifier">library</a></p>
-          </div>
+       </section>
+
+       <section>
+          <h3>Receipt verification (2)</h3>
+          <p>Read the <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/Validating_a_receipt">docs on verification</a></p>
+          <p>Use the <a href="https://github.com/mozilla/receiptverifier">library</a></p>
+          <pre><code class="javascript">
+let v = new Verifier({
+  // add in options here.
+  productURL: 'my.site'
+});
+v.verify(function(verifier) {
+  console.log(verifier.state.name);
+});
+          </pre></code>
         </section>
 
         <section>
@@ -151,6 +160,20 @@
             <li>When to check receipts</li>
             <li>What to do when it fails</li>
           </ol>
+        </section>
+
+        <section>
+          <h3>Testing receipts</h3>
+          <p>Receipts have four types:<br> <b>developer, reviewer, user and test</b></p>
+          <p>You can make test receipts in the Marketplace</p>
+          <img src="img/test-receipt.png" />
+        </section>
+
+        <section>
+          <h3>Using the simulator</h3>
+          <p>Firefox OS <a href="https://addons.mozilla.org/en-us/firefox/addon/firefox-os-simulator/">simulator</a> <br> can generate test receipts for you</p>
+          <img src="img/simulator.png" />
+          <p>Read the <a href="https://developer.mozilla.org/en-US/docs/Tools/Firefox_OS_Simulator/Simulator_Walkthrough#Using_the_Test_Receipts">docs</a></p>
         </section>
 
         <section>
@@ -222,18 +245,24 @@ Content-Type: text/plain
 
 webpay:84294ec6-7352
           </code></pre>
+          <p>Similar for refunds and chargebacks</p>
         </section>
 
         <section>
-          <h3>Refunds and chargebacks</h3>
-          <p>Similarly done through posts which you must respond to</p>
+          <h3>App developers must</h3>
+          <p>Maintain a server to:
+            <ul>
+              <li>Sign payment requests</li>
+              <li>Respond to events</li>
+            </ul>
+          </p>
+          <p>Update the app to react to purchases</p>
+          <p>Maintain the list of payments</p>
         </section>
 
         <section>
-          <h3>Testing all this</h3>
+          <h3>Testing in-app payments</h3>
           <p>You can make <a href="https://developer.mozilla.org/en-US/docs/Web/Apps/Publishing/In-app_payments#Simulating_payments">simulated in app payments</a></p>
-          <p>You can make test receipts (you can also do this in the simulator)</p>
-          <img src="img/test-receipt.png" />
         </section>
 
         <section>
