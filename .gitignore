@@ -1,3 +1,4 @@
 *.py[co]
 *.tiff
 .DS_Store
+linux-2013/reveal.js

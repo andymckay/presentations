@@ -1,0 +1,134 @@
+h1.snowman {
+    font-size: 20em;
+}
+
+h3 {
+    font-weight: 600 !important;
+}
+
+pre {
+    font-size: 0.8em !important;
+    width: 100%  !important;
+    margin: 0px !important;
+}
+
+.version {
+    position: float;
+    text-align: left;
+    padding-top: 1em !important;
+}
+
+.note {
+    width: 100%;
+    text-align: left;
+    padding-top: 1em !important;
+    color: #666;
+}
+
+.note::before {
+    content: 'Note: ';
+    font-weight: 600 !important;
+}
+
+.version::before {
+    content: 'Version: ';
+    font-weight: 600 !important;
+}
+
+code.smaller {
+    font-size: 0.8em !important;
+}
+
+div.count {
+    display: inline-block;
+    float: left;
+    margin-top: -1.7em;
+    font-size: 1em;
+    line-height: 0.9em;
+    color: #999;
+}
+
+html.eek body {
+    background: radial-gradient(rgb(220, 60, 40), rgb(120, 24, 11)) repeat scroll 0% 0% rgb(0, 0, 0);
+}
+
+html.eek body h2, html.good body h2 {
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px rgb(102, 102, 102);
+}
+
+html.good body {
+    background: radial-gradient(rgb(66, 208, 4), rgb(0, 131, 1)) repeat scroll 0% 0% rgb(0, 0, 0);
+}
+
+html.brendan body .reveal {
+    background-image: url("../../img/brendan.jpg");
+    background-size: cover;
+}
+
+html.shadow h3 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+}
+
+html.moth body .reveal {
+    background-image: url("../../img/moth.jpg");
+    background-size: cover;
+}
+
+
+html.linkedin body .reveal {
+    background-image: url("../../img/linkedin.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+html.repos body .reveal {
+    background-image: url("../../img/repos.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html.ipython body .reveal {
+    background-image: url("../../img/IMG_20131116_095231.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html.animation body .reveal {
+    background-image: url("../../img/IMG_20131116_112301.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html.facebook body .reveal {
+    background-image: url("../../img/P1060907.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html.cloud body .reveal {
+    background-image: url("../../img/IMG_20131116_133628.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html.rest body .reveal {
+    background-image: url("../../img/IMG_20131116_141556.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+html.raspberry body .reveal {
+    background-image: url("../../img/IMG_20131116_144625.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+cite a {
+    display: none;
+    color: grey;
+}

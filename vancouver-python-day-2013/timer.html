@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lightning Talk Timer</title>
+    <script src="jquery-1.6.2.min.js"></script>
+    <script src="timer.js"></script>
+    <script type="text/javascript">
+      var timer = new Timer(300,
+          { tick: function(seconds, humanTime) { $("#timer").text(humanTime);},
+            30: function() {$('#timer').addClass("warn")},
+            0: function() {$('#timer').addClass("done").removeClass("warn")},
+            reset: function() {$('#timer').removeClass('done warn')},
+          });
+
+      $(document).ready(function () {
+          $("#timer").text(timer.getHumanTime());
+          $("#timer").click(timer.pause);
+      });
+    </script>
+    <style type="text/css">
+      html { height: 100%; font-family: sans-serif; }
+      body { margin: 0; height: 100%; }
+      #timer {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+        display: block;
+        font-size: 2000%;
+      }
+
+      #timer:hover {
+        cursor: pointer !important;
+      }
+
+      #timer      { color: #eee; background-color: #000; }
+      #timer.warn { color: #f33; background-color: #000; }
+      #timer.done { color: #000; background-color: #f33; }
+    </style>
+  </head>
+  <body>
+    <p id="timer"></p>
+  </body>
+</html>
+
