@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payments Architecture</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
+    <style type="text/css">
+      body {
+        font-family: 'Fira Sans';
+        font-size: 150;
+        font-weight: 300;
+      }
+      p, ol { font-size: 3em; }
+      h1 { font-size: 4em; }
+      h2 { font-size: 2em; }
+      h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      pre {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: left;
+      }
+      .inverse {
+        background: white;
+        color: #272822;
+      }
+      .inverse h1, .inverse h2 {
+        color: #272822;
+        line-height: 0.8em;
+      }
+      </style>
+  </head>
+  <body>
+    <textarea id="source">
+layout: true
+class: center, middle, inverse
+---
+# Payments Architecture
+## Andy McKay
+## @andymckay
+---
+# Parties involved
+Developer
+
+Mozilla
+
+Payment provider
+---
+# Marketplace
+Developer sign up for payments
+
+Price and region choices
+
+Access to stats
+
+Fulfill app purchases
+---
+# Solitude
+Secure storage
+
+Backend API to payment services
+
+Defense: encryption, proxy, oauth
+---
+# Webpay
+Front end to solitude
+
+Communicates between marketplace and solitude
+---
+# mozPay
+Platform API
+---
+# Account setup
+![](img/sign-up.png)
+---
+# Account setup
+![](img/sign-up-flow.png)
+---
+# Choose price
+![](img/choose-price.png)
+---
+# Choose price
+![](img/choose-price-flow.png)
+---
+# Buy
+![](img/buy.png)
+---
+# Step 1
+![](img/buy-step-one.png)
+---
+# Setup mozPay
+https://addons.mozilla.org/en-US/android/addon/dev-marketplace/
+
+https://github.com/kumar303/ezboot
+---
+# Step 2
+![](img/buy-step-two.png)
+---
+# Step 3
+![](img/buy-step-three.png)
+---
+# Step 4
+![](img/buy-step-four.png)
+---
+# Step 5
+![](img/buy-step-five.png)
+---
+# Step 6
+![](img/buy-step-six.png)
+---
+# Provider auth
+Header injection of the phone number
+---
+# MT auth
+![](img/mt-auth.png)
+---
+# Flow
+![](img/zippy-auth-flow.png)
+---
+# Provider page
+![](img/provider.png)
+---
+# Flow
+![](img/zippy-buy-flow.png)
+---
+# Processing
+![](img/processing.png)
+---
+# Step 1
+![](img/return-one.png)
+---
+# Step 2
+![](img/return-two.png)
+---
+# Step 3
+![](img/return-three.png)
+---
+# Step 4
+![](img/return-four.png)
+---
+# Install
+![](img/install.png)
+---
+# Receipt
+![](img/receipt-one.png)
+---
+# Receipt
+![](img/receipt-two.png)
+---
+# How does in app work?
+s/Marketplace/Your app/
+
+The marketplace is almost the same as any other app.
+---
+## Fin
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
