@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Payments Architecture</title>
+    <title>Payments Technical Q1</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
     <style type="text/css">
@@ -14,10 +14,6 @@
       h1 { font-size: 4em; }
       h2 { font-size: 2em; }
       h3 { font-size: 1.6em; }
-      .footnote {
-        position: absolute;
-        bottom: 3em;
-      }
       li p { line-height: 1.25em; }
       pre {
         -moz-border-radius: 5px;
@@ -35,6 +31,17 @@
         color: #272822;
         line-height: 0.8em;
       }
+      .front {
+        background-image: url(img/mozilla-dinosaur_wallpaper_2560x1440.jpg);
+        background-size: cover !important;
+        vertical-align: top !important;
+        text-shadow: 1px 1px 2px black, 0 0 0.2em black, 0 0 0.2em black;
+      }
+      .front h1, .front h2 {
+        color: white !important;
+        text-shadow: 1px 1px 2px black, 0 0 0.2em black, 0 0 0.2em black;
+      }
+
       </style>
   </head>
   <body>
@@ -42,33 +49,81 @@
 layout: true
 class: center, middle, inverse
 ---
+class: front
 # Payments Technical
 ## Q1, 2014
 ---
 # Reference Implementation
 
-(Otherwise known as zippy)
+Full(er) stack testing for developers and QA.
+
+Style guide and localisations so payment providers don't have to make pages.
+
+Documentation - also as PDF.
 ---
-# Localisations
+# Reference demo
+
+<video src="movs/purchase.ogg" style="height: 10em" controls autoplay loop></video>
 ---
-# Metaplace OAuth
+# Webpay - single page app
+
+Move from traditional app that returns HTML to a JS app consuming a REST API.
+
+Allows MCC and MNC access which then allows payment choice.
 ---
-# Silent SMS
+# Payment choice
+
+<img src="img/flow.png" style="height: 8em">
+---
+# Style guide
+
+<video src="movs/styleguide.ogg" style="height: 10em" controls autoplay loop></video>
+---
+# Almost Silent SMS
+
+Edge case... if there's no header enrichment, fall back to MT Auth
+
+<img src="img/sms-auth.png" style="height: 7em">
+<img src="img/sms-auth-confirm.png" style="height: 7em">
+---
+# Almost Silent SMS
+
+Will catch and do PIN for you.
+
+<img src="img/sms-auth.png" style="height: 7em">
+<img src="img/sms-silent.png" style="height: 7em">
 ---
 # Replaceable receipt
 
 Firefox 29 (Firefox OS 1.4) onwards has replaceable receipts
 
-This allows: *subscriptions*, *trial periods*, *easier in-app payments*
+This allows: *subscriptions*, *trial periods*, *easier in-app payments*, *paywalls*
 ---
 # Replaceable receipt demo
 
-<video src="movs/receipts.ogg" controls loop></video>
+<video src="movs/receipts.ogg" controls autoplay loop></video>
 ---
 # New inapp payments
 
-Naming issues
+<img src="img/easier-payments.png">
+---
+# New inapp payments
 
+<img src="img/easier-payments-more.png">
+---
+# New inapp payments
+
+<img src="img/easier-payments-easier.png">
+---
+# Dashboard
+
+<video src="movs/metaplace.ogg" style="height: 10em" controls autoplay loop></video>
+---
+# W3C payments
+
+Kumar, Andy will be attending
+
+Come talk to us about ideas
 ---
 ## Fin
     </textarea>
