@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Payments Technical Q1</title>
+    <title>Payments Architecture Q3</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
     <style type="text/css">
@@ -101,15 +101,22 @@ So we have more control over the payment flow than just platform.
 
 Payments are arranged in layers, more security as you go down.
 
-- Marketplace
-- Webpay
-- Solitude
-- Payment provider
+- Marketplace (developer signup, product fulfillment)
+- Webpay (payment processing)
+- Solitude (storage, provider integration)
+- Payment provider (actual payment)
 ---
 # Current - Architecture
 
 <img src="img/current.png">
 
+---
+# Beyond Marketplace
+
+How much do you want to control?
+
+Example: if you wanted custom developer signup, product fulfillment and
+payment processing then...
 ---
 # Example: Game Centre
 
