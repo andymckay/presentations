@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payments Technical Q1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
+    <style type="text/css">
+      body {
+        font-family: 'Fira Sans';
+        font-size: 150;
+        font-weight: 300;
+      }
+      p, ol, li {
+        font-size: 3em;
+        text-align: left;
+      }
+      h1 { font-size: 4em; }
+      h2 { font-size: 2em; }
+      h3 { font-size: 1.6em; }
+      pre {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: left;
+      }
+      .inverse {
+        background: white;
+        color: #272822;
+      }
+      .inverse h1, .inverse h2 {
+        color: #272822;
+        line-height: 0.8em;
+      }
+      .front {
+        background-image: url(img/mozilla-dinosaur_wallpaper_2560x1440.jpg);
+        background-size: cover !important;
+        vertical-align: top !important;
+        text-shadow: 1px 1px 2px black, 0 0 0.2em black, 0 0 0.2em black;
+      }
+      .front h1, .front h2 {
+        color: white !important;
+        text-shadow: 1px 1px 2px black, 0 0 0.2em black, 0 0 0.2em black;
+      }
+
+      </style>
+  </head>
+  <body>
+    <textarea id="source">
+layout: true
+class: center, middle, inverse
+---
+class: front
+# Payments Architecture
+## Q3, 2014
+---
+# Current plans
+
+Make payments more attractive to developers.
+
+Payments that work **everywhere** on **everything**.
+---
+# Bango Identity
+
+Allows **Android** payments and **Desktop** payments
+
+Identity tied to the user not to device.
+
+Currently in QA, working with Bango on completing.
+---
+# Credit cards everywhere
+
+Allow credit cards in every country.
+
+Use carrier billing as an improvement where possible.
+
+Current blocker: Bango and translations.
+---
+# Polyfill
+
+Currently payments only work on **clients with mozPay**.
+
+A mozPay polyfill will allow payments to work on **everything**.
+---
+# Serverless in-app payments
+
+Requires no server to store receipts.
+
+Easier for developers.
+
+Currently queued up behind a few other projects in QA.
+---
+# Which means...
+
+All payments will now use an "fxpay" library.
+
+So we have more control over the payment flow than just platform.
+---
+# Architecture
+
+Payments are arranged in layers, more security as you go down.
+
+- Marketplace
+- Webpay
+- Solitude
+- Payment provider
+---
+# Current - Architecture
+
+<img src="img/current.png">
+
+---
+# Example: Game Centre
+
+<img src="img/game-centre.png">
+---
+## Fin
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
