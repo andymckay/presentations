@@ -86,11 +86,53 @@ damper
 <p id="step-2" class="video"></p>
 [Documentation](http://marketplace.readthedocs.org/en/latest/topics/setup.html#install-fireplace)
 ---
-3. Find a bug
+# Find a bug
 
-TODO
+In this case, a simple [front end bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1058469).
+
+Take the bug in bugzilla.
+
+Figure out how to fix the bug, make the changes.
+
+<p id="step-3" class="video"></p>
 ---
-# Thank you
+# Send pull request
+
+Commit with the bug number in the commit message.
+
+Create a [pull request](https://github.com/mozilla/fireplace/pull/653).
+
+Wait for a review.
+
+<p id="step-4" class="video"></p>
+---
+# Close bug
+
+Module owner will merge for you.
+
+Mark bug as closed.
+
+Celebrate.
+
+<p id="step-5" class="video"></p>
+---
+# What we didn't cover
+
+This bug shows the easiest flow. Other things that could occur:
+
+* Logging in through fireplace
+
+* Making git branches for each bug
+
+* Dealing with feedback on the review
+
+Join us in irc.mozilla.org at #marketplace for these
+---
+# Done
+
+Thank you for helping out the Marketplace and Mozilla.
+
+Join us in irc.mozilla.org at #marketplace
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
     </script>
@@ -98,8 +140,10 @@ TODO
       var slideshow = remark.create();
 
       function init() {
-        console.log('init');
         document.getElementById('step-2').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2air_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
+        document.getElementById('step-3').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2c9u_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
+        document.getElementById('step-4').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2c9y_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
+        document.getElementById('step-5').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2ca3_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
       };
       // hack to insert popcorn.
       var readyStateCheckInterval = setInterval(function() {
