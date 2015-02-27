@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Desktop Payments</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
+    <style type="text/css">
+      body {
+        font-family: 'Fira Sans';
+        font-size: 150;
+        font-weight: 300;
+      }
+      p, ol { font-size: 3em; }
+      h1 { font-size: 4em; }
+      h2 { font-size: 2em; }
+      h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      pre {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: left;
+      }
+      .inverse {
+        background: white;
+        color: #272822;
+      }
+      .inverse h1, .inverse h2 {
+        color: #272822;
+        line-height: 0.8em;
+      }
+      </style>
+  </head>
+  <body>
+    <textarea id="source">
+layout: true
+class: center, middle, inverse
+---
+# Marketplace Desktop Payments
+---
+# Marketplace
+Demo of using Desktop Payments in the Marketplace
+
+Using FxPay to do in-app payments
+---
+# Example app
+Webfighter on [github](https://github.com/muffinresearch/webfighter).
+
+<p id="video-1" class="video"></p>
+---
+# Products
+In-app products are created in the Marketplace Developer Hub.
+
+<img src="media/list-of-in-app-products.png" style="width: 80%">
+---
+# App changes
+Add in [fxpay](https://developer.mozilla.org/en-US/Marketplace/Monetization/In-app_payments_section/fxPay_iap) to the app.
+
+No server required.
+---
+# Purchase (1)
+When run as a website.
+---
+# Purchase (2)
+When run as an app.
+---
+# Purchase (3)
+When run on a device.
+---
+# Not just in-app
+You can purchase apps from the Marketplace as well...
+
+
+---
+## Fin
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      function init() {
+         document.getElementById('video-1').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2rr0_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
+      };
+      // hack to insert popcorn.
+      var readyStateCheckInterval = setInterval(function() {
+        if (document.readyState === "complete") {
+          init();
+          clearInterval(readyStateCheckInterval);
+        }
+      }, 10);
+    </script>
+  </body>
+</html>
