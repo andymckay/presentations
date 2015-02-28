@@ -5,20 +5,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
     <style type="text/css">
-      body {
+     body {
         font-family: 'Fira Sans';
         font-size: 150;
         font-weight: 300;
       }
-      p, ol { font-size: 3em; }
-      h1 { font-size: 4em; }
-      h2 { font-size: 2em; }
-      h3 { font-size: 1.6em; }
+      p, ol { font-size: 1.5em;}
+      h1 { font-size: 3em; }
+      h2 {
+        font-size: 2.2em;
+        font-weight: bold
+      }
+      h3 { font-size: 2em; }
       .footnote {
         position: absolute;
         bottom: 3em;
       }
-      li p { line-height: 1.25em; }
+      li p {
+        line-height: 1.25em;
+        text-align: left;
+      }
       pre {
         -moz-border-radius: 5px;
         -web-border-radius: 5px;
@@ -35,7 +41,10 @@
         color: #272822;
         line-height: 0.8em;
       }
-      </style>
+      .video iframe {
+        position:
+      }
+    </style>
   </head>
   <body>
     <textarea id="source">
@@ -44,10 +53,10 @@ class: center, middle, inverse
 ---
 # Marketplace Desktop Payments
 ---
-# Marketplace
-Demo of using Desktop Payments in the Marketplace
+# About Payments
+Currently supported on Firefox OS for carrier billing and credit card.
 
-Using FxPay to do in-app payments
+This presentation covers: **Desktop payments** and **shows fxpay**.
 ---
 # Example app
 Webfighter on [github](https://github.com/muffinresearch/webfighter).
@@ -72,7 +81,7 @@ When run as a website.
 # Purchase (2)
 When run as an app.
 
-(Video in progress)
+<p id="video-3" class="video"></p>
 ---
 # Purchase (3)
 When run on a device.
@@ -81,6 +90,15 @@ When run on a device.
 ---
 # Not just in-app
 You can purchase apps from the Marketplace as well through all the above methods.
+---
+# Functionality
+Credit card
+
+Carrier billing
+
+Purchase from desktop
+
+Purchase from in-app
 ---
 ## Fin
     </textarea>
@@ -92,6 +110,7 @@ You can purchase apps from the Marketplace as well through all the above methods
       function init() {
          document.getElementById('video-1').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2rr0_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
          document.getElementById('video-2').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2rrm_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
+         document.getElementById('video-3').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2rrs_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
          document.getElementById('video-4').innerHTML = "<iframe src='https://andymckay.makes.org/popcorn/2rrn_' width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>";
 
       };
