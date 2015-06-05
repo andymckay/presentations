@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travis CI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="http://www.agmweb.ca/fonts/fira.css"></link>
+    <style type="text/css">
+     body {
+        font-family: 'Fira Sans';
+        font-size: 150;
+        font-weight: 300;
+      }
+      p, ol { font-size: 1.5em;}
+      h1 { font-size: 4em; }
+      h2 {
+        font-size: 4em;
+        font-weight: bold
+      }
+      h3 { font-size: 2em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li {
+        font-size: 3em;
+        line-height: 1.25em;
+        text-align: left;
+        padding-bottom: 0.5em;
+      }
+      pre {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: left;
+      }
+      .inverse {
+        background: white;
+        color: #272822;
+      }
+      .inverse h1, .inverse h2 {
+        color: #272822;
+        line-height: 0.8em;
+      }
+      .video iframe {
+        position:
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+layout: true
+class: center, middle, inverse
+---
+# Travis CI and Mozilla
+* Over 370 repos on github.com/mozilla use it.
+* Number of concurrent jobs increased from **10** to **30** for a **one week trial**.
+---
+# What you can do
+* Make sure your builds [do not use sudo](http://docs.travis-ci.com/user/workers/container-based-infrastructure/).
+* Let us know if they are going slow.
+---
+# Contacts
+* Andy McKay (andym)
+* Simon Wex (wex)
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
