@@ -11,12 +11,13 @@
       h1 {
         font-weight: 400;
         border-bottom: 1px solid grey;
-        font-size: 1.2em !important;
+        font-size: 1.5em !important;
       }
       strong {
         color: goldenrod;
       }
       h2 {
+        font-size: 1.1em !important;
         font-weight: 200;
         line-height: 1.6em;
       }
@@ -53,14 +54,6 @@
       ol {
         padding-left: 1.5em;
       }
-      .inverse {
-        background: #272822;
-        color: #ccc;
-      }
-      .inverse h1, .inverse h2 {
-        color: #f3f3f3;
-        line-height: 0.8em;
-      }
       div.remark-slide-scaler {
         width: 100% !important;
         left: 0px !important;
@@ -70,18 +63,37 @@
       div.remark-slide-number {
         font-size: 0.5em !important;
       }
+      img {
+        float: right;
+      }
+      .backgroundy-firefox {
+        background-image: url(https://upload.wikimedia.org/wikipedia/commons/d/d2/Firefox_Logo%2C_2017.png);
+        background-size: 40%;
+        background-position: right -2em bottom -2em;
+      }
+      .backgroundy-github {
+        background-image: url(https://octodex.github.com/images/mountietocat.png);
+        background-size: 30%;
+        background-position: right 0em bottom 0em;
+      }
+      .backgroundy-professor {
+        background-image: url(https://octodex.github.com/images/Professortocat_v2.png);
+        background-size: 30%;
+        background-position: right 0em bottom 0em;
+      }
     </style>
   </head>
   <body>
     <textarea id="source">
-name: inverse
 layout: true
-class: middle, inverse
+class: middle
 ---
 # Developer Metrics
 ## What works, what doesn't work?
 
-## **Andy McKay** &bull; @andymckay &bull; andy@mckay.pub
+**Andy McKay** &bull; @andymckay &bull; andy@mckay.pub
+https://andymckay.github.io/presentations/
+https://github.com/andymckay/presentations/
 ---
 # Agenda
 
@@ -90,6 +102,8 @@ class: middle, inverse
 3. Some success
 4. Questions
 ---
+class: backgroundy-firefox
+
 # Introduction
 * Currently at GitHub:
   * Currently at 4 reports
@@ -138,7 +152,10 @@ class: middle, inverse
   * When deviations from norm occurred
   * When managing people out
 ---
+class: backgroundy-professor
+
 # We can do better...
+Some examples
 ---
 # Example: Security bugs
 * Can be stressful
@@ -172,8 +189,11 @@ Became... 👇🏼
 
 How can I help my team be happier, reduce stress and become better.
 ---
+class: backgroundy-github
 # Questions?
-## Fin
+**Andy McKay** &bull; @andymckay &bull; andy@mckay.pub
+https://andymckay.github.io/presentations/
+https://github.com/andymckay/presentations/
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
